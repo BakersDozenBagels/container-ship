@@ -1,5 +1,5 @@
 services:
-  factorio:
+  container-ship:
     build:
       context: .
       args: {}
