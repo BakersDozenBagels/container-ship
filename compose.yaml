@@ -1,0 +1,14 @@
+services:
+  factorio:
+    build:
+      context: .
+      args: {}
+    ports:
+      - "34197:34197/udp"
+      - "27015:27015/tcp"
+    volumes:
+      - C:\\ap-factorio:/factorio
+    environment:
+      - AP_URL=wss://Player:@archipelago.gg:56358
+      # - USERNAME=FactorioUsername
+      # - TOKEN=FactorioToken
