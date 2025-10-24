@@ -47,7 +47,9 @@ AP_PROTOCOL=wss                     # Change this to "ws" if your server doesn't
 AP_URL_BASE=archipelago.gg          # The URL you would connect to with the Archipelago Client.
 
 # Connection Override:
-AP_URL= # The full connection string, e.g. "wss://Player1:Password@archipelago.gg:12345".
-        # Ignored if AP_ROOM is in use.
-        # When active, the mod is not automatically managed, and must be put into the volume manually.
+AP_NO_MANAGE_MOD= # Set this to any string to disable automatic mod management.
+                  # When active, the mod is not automatically managed, and must be put into the volume manually.
+AP_URL=           # The full connection string, e.g. "wss://Player1:Password@archipelago.gg:12345".
+                  # Ignored if AP_ROOM is in use.
+                  # Implies AP_NO_MANAGE_MOD=true.
 ```
