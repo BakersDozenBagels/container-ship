@@ -9,6 +9,6 @@ services:
     volumes:
       - C:\\ap-factorio:/factorio
     environment:
-      - AP_URL=wss://Player:@archipelago.gg:56358
-      # - USERNAME=FactorioUsername
-      # - TOKEN=FactorioToken
+      - AP_ROOM=https://archipelago.gg/room/CeZ6YZ8sSoerbFVb3-O6Mg
+      - AP_PLAYER=Player1
+      - AP_PASSWORD=

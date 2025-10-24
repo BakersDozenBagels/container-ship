@@ -5,9 +5,8 @@ A Docker container configuration for running a multiplayer Factorio server conne
 ## Setup
 
 1. Pull the container image
-2. Set `AP_URL`
+2. Set `AP_ROOM`, `AP_PLAYER`, and `AP_PASSWORD`
 3. Mount a volume for save data and the AP mod
-4. Obtain the mod and put it in the mounted mods directory
 
 Using `compose.yaml`:
 ```yaml
@@ -20,7 +19,9 @@ services:
     volumes:
       - C:\\ap-factorio:/factorio
     environment:
-      - AP_URL=wss://SLOTNAME:SERVERPASSWORD@archipelago.gg:PORT
+      - AP_ROOM=abcdefghijklmnopqrstuv
+      - AP_PLAYER=Player1
+      - AP_PASSWORD=
     restart: unless-stopped
 ```
 
