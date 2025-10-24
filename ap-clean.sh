@@ -1,0 +1,17 @@
+#!/bin/bash
+
+if [[ -n $AP_PLAYER && $AP_ROOM =~ ^(https?://archipelago.gg/room/)?([^/]+)$ ]]; then
+    curl "${AP_ROOM_BASE:-https://archipelago.gg}/api/room_status/${BASH_REMATCH[2]}" -o /tmp/room
+    mkdir /factorio/mods
+    cd /factorio/mods
+    rm AP-*.zip
+    curl -OJ "${AP_ROOM_BASE:-https://archipelago.gg}$(jq -r '.downloads[.players | map(.[0] == "'"$AP_PLAYER"'") | index(true)].download' /tmp/room)"
+    AP_URL="${AP_PROTOCOL:-wss}://$AP_PLAYER:$AP_PASSWORD@${AP_URL_BASE:-archipelago.gg:}$(jq -r '.last_port' /tmp/room)";
+fi
+
+if [[ -z $AP_URL ]]; then
+    echo "Please specify either AP_URL or AP_ROOM." 1>&2
+    exit 1
+fi
+
+echo "$AP_URL" > /tmp/url
