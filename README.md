@@ -28,3 +28,26 @@ services:
 ```bash
 sudo docker compose up -d
 ```
+
+## Configuration
+
+Container Ship transitively supports everything [factorio-docker](github.com/factoriotools/factorio-docker/) does.
+
+Archipelago-specific environment variables with default values:
+```env
+# Connection Configuration:
+AP_ROOM=     # The room ID to fetch the mod and port from. Requires AP_PLAYER to work.
+AP_PLAYER=   # The slot name to connect as.
+AP_PASSWORD= # The password to connect with.
+
+# Advanced Connection Configuration:
+# Change these if you're connecting to a webhost other than archipelago.gg.
+AP_ROOM_BASE=https://archipelago.gg # The root URL of the webhost. This is used to fetch the mod and latest port for the room.
+AP_PROTOCOL=wss                     # Change this to "ws" if your server doesn't have a TLS certificate.
+AP_URL_BASE=archipelago.gg          # The URL you would connect to with the Archipelago Client.
+
+# Connection Override:
+AP_URL= # The full connection string, e.g. "wss://Player1:Password@archipelago.gg:12345".
+        # Ignored if AP_ROOM is in use.
+        # When active, the mod is not automatically managed, and must be put into the volume manually.
+```
