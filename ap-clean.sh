@@ -1,7 +1,5 @@
 #!/bin/bash
 
-set -x
-
 if [[ -n $AP_PLAYER && $AP_ROOM =~ ^(https?://archipelago.gg/room/)?([^/]+)$ ]]; then
     curl "${AP_ROOM_BASE:-https://archipelago.gg}/api/room_status/${BASH_REMATCH[2]}" -o /tmp/room
     mkdir /factorio/mods
